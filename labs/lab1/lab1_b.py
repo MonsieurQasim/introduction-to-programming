@@ -1,6 +1,6 @@
 ''''hello world with input as thinker program'''
 
-from thinker import Tk, Frame, Label, Entry, Button, messagebox
+from tkinter import Tk, Frame, Label, Entry, Button, messagebox
 
 window=Tk()
 window.title("Hello")
