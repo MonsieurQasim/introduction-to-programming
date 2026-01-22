@@ -1,5 +1,5 @@
 ''''hello world with input as thinker program'''
-from struct import pack
+
 from thinker import Tk, Frame, Label, Entry, Button, messagebox
 
 window=Tk()
