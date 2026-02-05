@@ -16,12 +16,29 @@ C=b**2*h**2+a**2*(c-k)**2-a**2*b**2
 
 D=B**2-4*A*C
 
+def one_intersection(A, B):
+    x = -B / (2 * A)
+    y = m * x + c
+    print(f"Intersection point: ({x:.3f}, {y:.3f})")
+
+
+def two_intersections(A, B, D):
+    x1 = (-B + math.sqrt(D)) / (2 * A)
+    y1 = m * x1 + c
+
+    x2 = (-B - math.sqrt(D)) / (2 * A)
+    y2 = m * x2 + c
+
+    print(f"Intersection point 1: ({x1:.3f}, {y1:.3f})")
+    print(f"Intersection point 2: ({x2:.3f}, {y2:.3f})")
+    
 if D>0:
     print("Two intersection points")
+    two_intersections(A, B, D)
 
 elif D==0:
     print("One intersection point")
-
+    one_intersection(A, B)
 else:
     print("No intersection points")
 
