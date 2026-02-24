@@ -44,6 +44,8 @@ while True:
         break
 
     chosen_index = int(input("Enter the slot number to move: "))
+    chosen_index= board.index(chosen_index)
+    print(chosen_index, board[chosen_index])
 
     blank_index = board.index('_')
 
