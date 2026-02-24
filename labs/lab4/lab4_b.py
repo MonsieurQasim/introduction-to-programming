@@ -1,14 +1,11 @@
-from random import randint
+from random import randint, random
+import random
+original = tuple([num for num in range(1, 16)]) 
+
+indexes = [i for i in range(len(original))]
 
 while True:
-    
-    original = tuple([num for num in range(1, 15)]) 
-
-    indexes = [i for i in range(len(original))]
-
-    for i in range(len(indexes)):
-        j = randint(0, len(indexes) - 1)
-        indexes[i], indexes[j] = indexes[j], indexes[i]
+    random.shuffle(indexes)
 
     inversions = 0
     for i in range(len(indexes)):
@@ -23,7 +20,7 @@ while True:
 board = []
 for i in range(len(indexes)):
     board.append(original[indexes[i]])
-
+ 
 board.append('_')
 
 # SOLVING
@@ -41,22 +38,14 @@ while True:
     for i in range(len(original)):
         if board[i] != original[i]:
             solved = False
-
-    if solved and board[-1] == '_':
+            break
+    if solved:
         print("Puzzle solved!")
         break
 
-    move = int(input("Enter the slot number to move: "))
+    chosen_index = int(input("Enter the slot number to move: "))
 
-    blank_index = 0
-    for i in range(len(board)):
-        if board[i] == '_':
-            blank_index = i
-
-    chosen_index = -1
-    for i in range(len(board)):
-        if board[i] == move:
-            chosen_index = i
+    blank_index = board.index('_')
 
     # check
     same_row = (chosen_index // 4 == blank_index // 4 and
